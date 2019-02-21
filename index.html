@@ -13,13 +13,36 @@
     ></script>
   </head>
   <body>
-    <div class="container">
-      <header>
-        <h1>TCG Search</h1>
-      </header>
+    <header class="container">
+      <h1>TCG Search</h1>
+    </header>
 
-      <p id="js-error-message"></p>
-    </div>
+    <form>
+      <label for="search-term">Pokemon Name: </label>
+      <input
+        type="text"
+        name="search-term"
+        id="js-search-term"
+        class="search-term"
+        required
+      />
+
+      <button id="search-input" type="submit">Search</button>
+    </form>
+
+    <label for="pokemon_names">Pokemon Name: </label>
+    <select name="pokemon_names" id="pokemon_names"></select>
+
+    <label for="pokemon_types">Pokemon Type: </label>
+    <select name="pokemon_types" id="pokemon_types"></select>
+
+    <label for="pokemon_subtypes">Pokemon Sub Type: </label>
+    <select name="pokemon_subtypes" id="pokemon_subtypes"></select>
+
+    <label for="pokemon_sets">Pokemon Set: </label>
+    <select id="pokemon_sets"></select>
+
+    <p id="js-error-message"></p>
 
     <script src="index.js"></script>
   </body>
