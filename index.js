@@ -17,8 +17,10 @@ function displayCards(resData) {
 }
 
 function makeFetch(type, params = "") {
-  // console.log("make fetch");
-  fetch(`https://api.pokemontcg.io/v1/${type}?${params}`)
+  let url = `https://api.pokemontcg.io/v1/${type}?${params}`;
+  console.log(url);
+
+  fetch(url)
     .then(res => {
       if (res.ok) {
         return res.json();
@@ -38,15 +40,21 @@ $("#pokemon_names").change(function() {
 });
 
 $("#pokemon_sets").change(function() {
-  console.log($("#pokemon_sets").val());
+  const val = $("#pokemon_sets").val();
+  console.log(val);
+  makeFetch("cards", `set=${val}`);
 });
 
 $("#pokemon_types").change(function() {
-  console.log($("#pokemon_types").val());
+  const val = $("#pokemon_types").val();
+  console.log(val);
+  makeFetch("cards", `types=${val}`);
 });
 
 $("#pokemon_subtypes").change(function() {
-  console.log($("#pokemon_subtypes").val());
+  const val = $("#pokemon_subtypes").val();
+  console.log(val);
+  makeFetch("cards", `subtype=${val}`);
 });
 
 function main() {
