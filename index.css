@@ -1,22 +1,97 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    line-height: 1.8;
-    width: 100%;
-    font-size: 18px;
+  line-height: 1.8;
+  width: 100%;
+  font-size: 18px;
 }
 
 .container {
-    width: 75%;
-    margin: 10px auto;
-    text-align: center;
+  width: 75%;
+  margin: 10px auto;
+  text-align: center;
 }
 
 .border {
-    border: 2px solid #000;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+.card {
+  padding: 10px;
+  margin: 10px;
+  list-style: none;
+  text-align: left;
+  display: grid;
+}
+
+#results-list {
+  width: 100%;
+  display: grid;
+}
+
+img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+label {
+  font-size: 20px;
+}
+
+#js-search-term {
+  font-size: 18px;
+}
+
+/* #search-input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 40px;
     border-radius: 5px;
+    font-weight: 700;
+    background-color: #000;
+    color: #fff;
+} */
+
+#search-input:hover {
+  background-color: #505050;
+  cursor: pointer;
+}
+
+/* iPad */
+
+@media only screen and (min-width: 768px) {
+  #results-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktops and laptops ----------- */
+
+@media only screen and (min-width: 1224px) {
+  #results-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Large screens ----------- */
+
+@media only screen and (min-width: 1824px) {
+  #results-list {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media only screen and (min-width: 2440px) {
+  #results-list {
+    grid-template-columns: repeat(8, 1fr);
+  }
 }

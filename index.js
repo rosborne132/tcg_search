@@ -9,15 +9,25 @@ function populateJson(jsonData, location) {
 }
 
 function displayCard(card) {
-  console.log(card);
+  $("#results-list").append(
+    `
+    <li class="card">
+      <img src="${card.imageUrl}" alt="${card.name}"/>
+    </li>
+    `
+  );
 }
 
 function displayCards(resData) {
-  resData.cards.map(card => displayCard(card));
+  $("#results-list").empty();
+  const { cards: cards } = resData;
+  cards.map(card => displayCard(card));
+
+  $("#results").removeClass("hidden");
 }
 
 function makeFetch(type, params = "") {
-  let url = `https://api.pokemontcg.io/v1/${type}?${params}`;
+  let url = `https://api.pokemontcg.io/v1/${type}?${params}&limit=50`;
   console.log(url);
 
   fetch(url)
@@ -57,21 +67,24 @@ $("#pokemon_subtypes").change(function() {
   makeFetch("cards", `subtype=${val}`);
 });
 
+function watchForm() {
+  $("form").submit(e => {
+    e.preventDefault();
+    const val = $("#js-search-term").val();
+    makeFetch("cards", `name=${val}`);
+  });
+}
+
 function main() {
-  // makeFetch("sets");
+  makeFetch("cards");
   populateJson("./data/pokemon.json", "#pokemon_names");
   populateJson("./data/sets.json", "#pokemon_sets");
   populateJson("./data/types.json", "#pokemon_types");
   populateJson("./data/subtypes.json", "#pokemon_subtypes");
+  watchForm();
 }
 
 $(main());
 
 // Hardcoded url to buy pokemon cards
 // https://shop.tcgplayer.com/pokemon/${SET_NAME}?ProductName=${CARD_NAME}
-
-// My api calls
-// Sets: cards?set=Base
-// Types: cards?types=water
-// Subtypes: cards?subtype=mega
-// Pokemon: cards?name=pikachu
