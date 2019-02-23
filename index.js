@@ -1,5 +1,10 @@
 "use strict";
 
+// let scrollTop = $(document).scrollTop();
+// let windowHeight = $(window).height();
+// let bodyHeight = $(document).height() - windowHeight;
+// let scrollPercentage = scrollTop / bodyHeight;
+
 function populateJson(jsonData, location) {
   $.getJSON(jsonData, function(json) {
     let itemHTML = [];
@@ -8,9 +13,6 @@ function populateJson(jsonData, location) {
     $(location).append(itemHTML);
   });
 }
-
-// Hardcoded url to buy pokemon cards
-// https://shop.tcgplayer.com/pokemon/${SET_NAME}?ProductName=${CARD_NAME}
 
 function displayCards(resData) {
   $("#results-list").empty();
@@ -33,11 +35,18 @@ function displayCards(resData) {
   $("#results").removeClass("hidden");
 }
 
-function makeFetch(type, params = "") {
-  let url = `https://api.pokemontcg.io/v1/${type}?${params}&limit=50`;
+function makeFetch(type, params = "", limit = 10) {
+  let url = `https://api.pokemontcg.io/v1/${type}?${params}&limit=${limit}`;
+
+  const options = {
+    headers: new Headers({
+      "Page-Size": 10,
+      Count: 10
+    })
+  };
   console.log(url);
 
-  fetch(url)
+  fetch(url, options)
     .then(res => {
       if (res.ok) {
         return res.json();
@@ -83,11 +92,12 @@ function watchForm() {
 }
 
 function main() {
-  makeFetch("cards");
   populateJson("./data/pokemon.json", "#pokemon_names");
   populateJson("./data/sets.json", "#pokemon_sets");
   populateJson("./data/types.json", "#pokemon_types");
   populateJson("./data/subtypes.json", "#pokemon_subtypes");
+
+  makeFetch("cards");
   watchForm();
 }
 

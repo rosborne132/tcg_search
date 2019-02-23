@@ -17,53 +17,57 @@
       <h1>TCG Search</h1>
     </header>
 
-    <form>
-      <label for="search-term">Pokemon Name: </label>
-      <input
-        type="text"
-        name="search-term"
-        id="js-search-term"
-        class="search-term"
-        required
-      />
+    <div class="container input-container">
+      <form>
+        <label for="search-term">Pokemon Name: </label>
+        <input
+          type="text"
+          name="search-term"
+          id="js-search-term"
+          class="search-term"
+          required
+        />
 
-      <button id="search-input" type="submit">Search</button>
-    </form>
+        <button id="search-input" type="submit">Search</button>
+      </form>
 
-    <div class="input_group">
-      <label for="pokemon_names">Name: </label>
-      <select name="pokemon_names" id="pokemon_names"
-        ><option disabled selected value>
-          -- select an option --
-        </option></select
-      >
-    </div>
+      <div class="option-group">
+        <div class="input_group">
+          <label for="pokemon_names">Name: </label>
+          <select name="pokemon_names" id="pokemon_names"
+            ><option disabled selected value>
+              -- select an option --
+            </option></select
+          >
+        </div>
 
-    <div class="input_group">
-      <label for="pokemon_types">Type: </label>
-      <select name="pokemon_types" id="pokemon_types"
-        ><option disabled selected value>
-          -- select an option --
-        </option></select
-      >
-    </div>
+        <div class="input_group">
+          <label for="pokemon_types">Type: </label>
+          <select name="pokemon_types" id="pokemon_types"
+            ><option disabled selected value>
+              -- select an option --
+            </option></select
+          >
+        </div>
 
-    <div class="input_group">
-      <label for="pokemon_subtypes">Sub Type: </label>
-      <select name="pokemon_subtypes" id="pokemon_subtypes"
-        ><option disabled selected value>
-          -- select an option --
-        </option></select
-      >
-    </div>
+        <div class="input_group">
+          <label for="pokemon_subtypes">Sub Type: </label>
+          <select name="pokemon_subtypes" id="pokemon_subtypes"
+            ><option disabled selected value>
+              -- select an option --
+            </option></select
+          >
+        </div>
 
-    <div class="input_group">
-      <label for="pokemon_sets">Set: </label>
-      <select id="pokemon_sets"
-        ><option disabled selected value>
-          -- select an option --
-        </option></select
-      >
+        <div class="input_group">
+          <label for="pokemon_sets">Set: </label>
+          <select id="pokemon_sets"
+            ><option disabled selected value>
+              -- select an option --
+            </option></select
+          >
+        </div>
+      </div>
     </div>
 
     <p id="js-error-message"></p>

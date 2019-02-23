@@ -55,27 +55,43 @@ img {
   display: none;
 }
 
+form {
+  display: grid;
+}
+
 label {
-  font-size: 20px;
+  font-size: 25px;
+}
+
+input {
+  width: 190px;
+  margin: 0 auto;
 }
 
 #js-search-term {
   font-size: 18px;
 }
 
-/* #search-input {
-    display: block;
-    margin: 10px auto;
-    padding: 10px 40px;
-    border-radius: 5px;
-    font-weight: 700;
-    background-color: #000;
-    color: #fff;
-} */
+#search-input {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 76px;
+  border-radius: 5px;
+  font-weight: 700;
+  background-color: blue;
+  color: #fff;
+}
 
 #search-input:hover {
   background-color: #505050;
   cursor: pointer;
+}
+
+.input-container {
+  padding: 5px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  display: grid;
 }
 
 /* iPad */
@@ -83,6 +99,13 @@ label {
 @media only screen and (min-width: 768px) {
   #results-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .input-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .option-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
