@@ -39,6 +39,18 @@ img {
   border-radius: 5px;
 }
 
+#card-button {
+  width: 100%;
+  background-color: blue;
+  color: #fff;
+  font-size: 22px;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
 .hidden {
   display: none;
 }

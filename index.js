@@ -2,27 +2,34 @@
 
 function populateJson(jsonData, location) {
   $.getJSON(jsonData, function(json) {
-    json.map(data =>
-      $(location).append(`<option value="${data}"> ${data}</option>`)
-    );
+    let itemHTML = [];
+    json.map(data => itemHTML.push(`<option value="${data}">${data}</option>`));
+    // console.log(itemHTML);
+    $(location).append(itemHTML);
   });
 }
 
-function displayCard(card) {
-  $("#results-list").append(
-    `
-    <li class="card">
-      <img src="${card.imageUrl}" alt="${card.name}"/>
-    </li>
-    `
-  );
-}
+// Hardcoded url to buy pokemon cards
+// https://shop.tcgplayer.com/pokemon/${SET_NAME}?ProductName=${CARD_NAME}
 
 function displayCards(resData) {
   $("#results-list").empty();
   const { cards: cards } = resData;
-  cards.map(card => displayCard(card));
+  let cardList = [];
+  cards.map(card =>
+    cardList.push(
+      `
+      <li class="card">
+        <img src="${card.imageUrl}" alt="${card.name}"/>
+        <a target="_blank" href="https://shop.tcgplayer.com/pokemon/${
+          card.set
+        }/${card.name}" id="card-button" type="submit">BUY</a>
+      </li>
+      `
+    )
+  );
 
+  $("#results-list").append(cardList);
   $("#results").removeClass("hidden");
 }
 
@@ -85,6 +92,3 @@ function main() {
 }
 
 $(main());
-
-// Hardcoded url to buy pokemon cards
-// https://shop.tcgplayer.com/pokemon/${SET_NAME}?ProductName=${CARD_NAME}
