@@ -5,15 +5,16 @@
 // let bodyHeight = $(document).height() - windowHeight;
 // let scrollPercentage = scrollTop / bodyHeight;
 
+// Populate dropdown menu with given json data
 function populateJson(jsonData, location) {
   $.getJSON(jsonData, function(json) {
     let itemHTML = [];
     json.map(data => itemHTML.push(`<option value="${data}">${data}</option>`));
-    // console.log(itemHTML);
     $(location).append(itemHTML);
   });
 }
 
+// Display cards to card list
 function displayCards(resData) {
   $("#results-list").empty();
   const { cards: cards } = resData;
@@ -35,7 +36,9 @@ function displayCards(resData) {
   $("#results").removeClass("hidden");
 }
 
+// Mak fetch request based on search term
 function makeFetch(type, params = "", limit = 10) {
+  $("#results").addClass("hidden");
   let url = `https://api.pokemontcg.io/v1/${type}?${params}&limit=${limit}`;
 
   const options = {
@@ -59,6 +62,7 @@ function makeFetch(type, params = "", limit = 10) {
     });
 }
 
+// Populate Dropdown menus
 $("#pokemon_names").change(function() {
   const val = $("#pokemon_names").val();
   console.log(val);
@@ -104,6 +108,7 @@ function watchForm() {
   });
 }
 
+// Main function
 function main() {
   populateJson("./data/pokemon.json", "#pokemon_names");
   populateJson("./data/sets.json", "#pokemon_sets");
