@@ -63,24 +63,36 @@ $("#pokemon_names").change(function() {
   const val = $("#pokemon_names").val();
   console.log(val);
   makeFetch("cards", `name=${val}`);
+  $("#pokemon_sets").val("startOption");
+  $("#pokemon_types").val("startOption");
+  $("#pokemon_subtypes").val("startOption");
 });
 
 $("#pokemon_sets").change(function() {
   const val = $("#pokemon_sets").val();
   console.log(val);
   makeFetch("cards", `set=${val}`);
+  $("#pokemon_names").val("startOption");
+  $("#pokemon_types").val("startOption");
+  $("#pokemon_subtypes").val("startOption");
 });
 
 $("#pokemon_types").change(function() {
   const val = $("#pokemon_types").val();
   console.log(val);
   makeFetch("cards", `types=${val}`);
+  $("#pokemon_names").val("startOption");
+  $("#pokemon_sets").val("startOption");
+  $("#pokemon_subtypes").val("startOption");
 });
 
 $("#pokemon_subtypes").change(function() {
   const val = $("#pokemon_subtypes").val();
   console.log(val);
   makeFetch("cards", `subtype=${val}`);
+  $("#pokemon_names").val("startOption");
+  $("#pokemon_sets").val("startOption");
+  $("#pokemon_types").val("startOption");
 });
 
 function watchForm() {
@@ -88,6 +100,7 @@ function watchForm() {
     e.preventDefault();
     const val = $("#js-search-term").val();
     makeFetch("cards", `name=${val}`);
+    $("#js-search-term").val("");
   });
 }
 
