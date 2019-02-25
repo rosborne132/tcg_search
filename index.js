@@ -26,7 +26,7 @@ function displayCards(resData) {
         <img src="${card.imageUrl}" alt="${card.name}"/>
         <a target="_blank" href="https://shop.tcgplayer.com/pokemon/${
           card.set
-        }/${card.name}" id="card-button" type="submit">BUY</a>
+        }/${card.name}" id="card-button">BUY</a>
       </li>
       `
     )
