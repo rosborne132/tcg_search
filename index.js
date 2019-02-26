@@ -26,19 +26,19 @@ function displayCards(resData) {
         <img src="${card.imageUrl}" alt="${card.name}"/>
         <a target="_blank" href="https://shop.tcgplayer.com/pokemon/${
           card.set
-        }/${card.name}" id="card-button">BUY</a>
+        }/${card.name}" id="card-button" class="button">BUY</a>
       </li>
       `
     )
   );
 
   $("#results-list").append(cardList);
-  $("#results").removeClass("hidden");
+  $("#results-list").fadeIn("slow");
 }
 
-// Mak fetch request based on search term
+// Make fetch request based on search term
 function makeFetch(type, params = "", limit = 10) {
-  $("#results").addClass("hidden");
+  $("#results-list").fadeOut("slow");
   let url = `https://api.pokemontcg.io/v1/${type}?${params}&limit=${limit}`;
 
   const options = {

@@ -40,6 +40,12 @@ p {
     border: 5px solid rgb(255, 230, 3);
     background-color: rgb(255, 230, 3);
     border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    transform: scale(1.03);
 }
 
 #results-list {
@@ -53,31 +59,14 @@ img {
     display: block;
 }
 
-#card-button {
-    width: 98%;
-    font-family: "Roboto", sans-serif;
-    background-color: blue;
-    color: #fff;
-    display: block;
-    text-align: center;
-    margin: 5px auto;
-    font-size: 22px;
-    text-decoration: none;
-    padding: 5px;
-    border-radius: 10px;
-}
-
-#card-button:hover {
-    background-color: #4c97c7;
-}
-
 .hidden {
     display: none;
 }
 
 select {
     width: 60%;
-    height: 50%;
+    height: 25px;
+    margin: 0 auto;
 }
 
 form {
@@ -85,6 +74,7 @@ form {
 }
 
 label {
+    font-family: "Roboto", sans-serif;
     font-size: 25px;
 }
 
@@ -97,19 +87,32 @@ input {
     font-size: 18px;
 }
 
-#search-input {
-    display: block;
-    margin: 10px auto;
-    padding: 10px 76px;
-    border-radius: 5px;
-    font-weight: 700;
+.button {
+    font-family: "Roboto", sans-serif;
     background-color: blue;
     color: #fff;
+    display: block;
+    text-align: center;
+    margin: 5px auto;
+    font-size: 22px;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 10px;
 }
 
-#search-input:hover {
+#card-button {
+    width: 98%;
+}
+
+.button:hover {
     background-color: #4c97c7;
     cursor: pointer;
+}
+
+#search-input {
+    margin: 10px auto;
+    padding: 8px 70px;
+    font-weight: 700;
 }
 
 .input-container {
@@ -118,6 +121,11 @@ input {
     border: 2px solid #000;
     border-radius: 5px;
     display: grid;
+}
+
+.input_group {
+    display: grid;
+    padding: 5px;
 }
 
 /* iPad */
