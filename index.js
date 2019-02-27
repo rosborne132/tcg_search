@@ -1,10 +1,4 @@
 "use strict";
-
-// let scrollTop = $(document).scrollTop();
-// let windowHeight = $(window).height();
-// let bodyHeight = $(document).height() - windowHeight;
-// let scrollPercentage = scrollTop / bodyHeight;
-
 // Populate dropdown menu with given json data
 function populateJson(jsonData, location) {
   $.getJSON(jsonData, function(json) {
@@ -37,19 +31,13 @@ function displayCards(resData) {
 }
 
 // Make fetch request based on search term
-function makeFetch(type, params = "", limit = 10) {
+function makeFetch(type, params = "") {
   $("#results-list").fadeOut("slow");
-  let url = `https://api.pokemontcg.io/v1/${type}?${params}&limit=${limit}`;
+  let url = `https://api.pokemontcg.io/v1/${type}?${params}`;
 
-  const options = {
-    headers: new Headers({
-      "Page-Size": 10,
-      Count: 10
-    })
-  };
   console.log(url);
 
-  fetch(url, options)
+  fetch(url)
     .then(res => {
       if (res.ok) {
         return res.json();
