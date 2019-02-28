@@ -17,67 +17,70 @@
     ></script>
   </head>
   <body>
-    <header class="container">
+    <header class="container" role="banner">
       <h1>TCG Search</h1>
     </header>
 
-    <div class="container input-container">
-      <div class="option-group">
-        <div class="input_group">
-          <label for="pokemon_names">Name: </label>
-          <select name="pokemon_names" id="pokemon_names"
-            ><option value="startOption" disabled selected value>
-              -- select an option --
-            </option></select
-          >
-        </div>
+    <main role="main">
+      <div class="container input-container">
+        <div class="option-group">
+          <div class="input_group">
+            <label for="pokemon_names">Name: </label>
+            <select name="pokemon_names" id="pokemon_names"
+              ><option value="startOption" disabled selected value>
+                -- select an option --
+              </option></select
+            >
+          </div>
 
-        <div class="input_group">
-          <label for="pokemon_types">Type: </label>
-          <select name="pokemon_types" id="pokemon_types"
-            ><option value="startOption" disabled selected value>
-              -- select an option --
-            </option></select
-          >
-        </div>
+          <div class="input_group">
+            <label for="pokemon_types">Type: </label>
+            <select name="pokemon_types" id="pokemon_types"
+              ><option value="startOption" disabled selected value>
+                -- select an option --
+              </option></select
+            >
+          </div>
 
-        <div class="input_group">
-          <label for="pokemon_subtypes">Sub Type: </label>
-          <select name="pokemon_subtypes" id="pokemon_subtypes"
-            ><option value="startOption" disabled selected value>
-              -- select an option --
-            </option></select
-          >
-        </div>
+          <div class="input_group">
+            <label for="pokemon_subtypes">Sub Type: </label>
+            <select name="pokemon_subtypes" id="pokemon_subtypes"
+              ><option value="startOption" disabled selected value>
+                -- select an option --
+              </option></select
+            >
+          </div>
 
-        <div class="input_group">
-          <label for="pokemon_sets">Set: </label>
-          <select id="pokemon_sets"
-            ><option value="startOption" disabled selected value>
-              -- select an option --
-            </option></select
-          >
+          <div class="input_group">
+            <label for="pokemon_sets">Set: </label>
+            <select id="pokemon_sets"
+              ><option value="startOption" disabled selected value>
+                -- select an option --
+              </option></select
+            >
+          </div>
         </div>
+        <form>
+          <label for="search-term">Pokemon Name: </label>
+          <input
+            type="text"
+            name="search-term"
+            id="js-search-term"
+            class="search-term"
+            placeholder="Pikachu"
+            required
+          />
+
+          <button id="search-input" class="button" type="submit">Search</button>
+        </form>
       </div>
-      <form>
-        <label for="search-term">Pokemon Name: </label>
-        <input
-          type="text"
-          name="search-term"
-          id="js-search-term"
-          class="search-term"
-          required
-        />
 
-        <button id="search-input" class="button" type="submit">Search</button>
-      </form>
-    </div>
+      <p id="js-error-message"></p>
 
-    <p id="js-error-message"></p>
-
-    <section id="results" class="container">
-      <ul id="results-list"></ul>
-    </section>
+      <section id="results" class="container">
+        <ul id="results-list"></ul>
+      </section>
+    </main>
 
     <script src="./scripts/index.min.js"></script>
   </body>
