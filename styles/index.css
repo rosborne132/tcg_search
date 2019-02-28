@@ -34,14 +34,7 @@ p {
     text-align: center;
 }
 
-.border {
-    border: 2px solid #000;
-    border-radius: 10px;
-}
-
 .card {
-    padding: 0;
-    position: relative;
     list-style: none;
     border: 5px solid rgb(255, 230, 3);
     background-color: rgb(255, 230, 3);
@@ -55,14 +48,12 @@ p {
 }
 
 #results-list {
-    width: 100%;
     display: grid;
     grid-gap: 20px;
 }
 
 img {
     width: 100%;
-    display: block;
 }
 
 .hidden {
@@ -118,7 +109,6 @@ input {
 #search-input {
     margin: 10px auto;
     padding: 8px 70px;
-    font-weight: 700;
 }
 
 .input-container {
@@ -134,8 +124,6 @@ input {
     padding: 5px;
 }
 
-/* iPad */
-
 @media only screen and (min-width: 768px) {
     #results-list {
         grid-template-columns: repeat(2, 1fr);
@@ -149,15 +137,11 @@ input {
     }
 }
 
-/* Desktops and laptops ----------- */
-
 @media only screen and (min-width: 1224px) {
     #results-list {
         grid-template-columns: repeat(4, 1fr);
     }
 }
-
-/* Large screens ----------- */
 
 @media only screen and (min-width: 1824px) {
     #results-list {

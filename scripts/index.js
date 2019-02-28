@@ -31,11 +31,9 @@ function displayCards(resData) {
 }
 
 // Make fetch request based on search term
-function makeFetch(type, params = "") {
+function makeFetch(params = "") {
   $("#results-list").fadeOut("slow");
-  let url = `https://api.pokemontcg.io/v1/${type}?${params}`;
-
-  console.log(url);
+  let url = `https://api.pokemontcg.io/v1/cards?${params}`;
 
   fetch(url)
     .then(res => {
@@ -53,8 +51,7 @@ function makeFetch(type, params = "") {
 // Populate Dropdown menus
 $("#pokemon_names").change(function() {
   const val = $("#pokemon_names").val();
-  console.log(val);
-  makeFetch("cards", `name=${val}`);
+  makeFetch(`name=${val}`);
   $("#pokemon_sets").val("startOption");
   $("#pokemon_types").val("startOption");
   $("#pokemon_subtypes").val("startOption");
@@ -62,8 +59,7 @@ $("#pokemon_names").change(function() {
 
 $("#pokemon_sets").change(function() {
   const val = $("#pokemon_sets").val();
-  console.log(val);
-  makeFetch("cards", `set=${val}`);
+  makeFetch(`set=${val}`);
   $("#pokemon_names").val("startOption");
   $("#pokemon_types").val("startOption");
   $("#pokemon_subtypes").val("startOption");
@@ -71,8 +67,7 @@ $("#pokemon_sets").change(function() {
 
 $("#pokemon_types").change(function() {
   const val = $("#pokemon_types").val();
-  console.log(val);
-  makeFetch("cards", `types=${val}`);
+  makeFetch(`types=${val}`);
   $("#pokemon_names").val("startOption");
   $("#pokemon_sets").val("startOption");
   $("#pokemon_subtypes").val("startOption");
@@ -80,8 +75,7 @@ $("#pokemon_types").change(function() {
 
 $("#pokemon_subtypes").change(function() {
   const val = $("#pokemon_subtypes").val();
-  console.log(val);
-  makeFetch("cards", `subtype=${val}`);
+  makeFetch(`subtype=${val}`);
   $("#pokemon_names").val("startOption");
   $("#pokemon_sets").val("startOption");
   $("#pokemon_types").val("startOption");
@@ -91,7 +85,7 @@ function watchForm() {
   $("form").submit(e => {
     e.preventDefault();
     const val = $("#js-search-term").val();
-    makeFetch("cards", `name=${val}`);
+    makeFetch(`name=${val}`);
     $("#js-search-term").val("");
   });
 }
@@ -103,7 +97,7 @@ function main() {
   populateJson("./data/types.json", "#pokemon_types");
   populateJson("./data/subtypes.json", "#pokemon_subtypes");
 
-  makeFetch("cards");
+  makeFetch();
   watchForm();
 }
 
